@@ -1,0 +1,6 @@
+Incident_ID,Source,Call_ID,Transcript,Extracted_Event,Location,Timestamp,Sentiment,Urgency_Score,Severity
+INC_001,audio,C001,My mom is here. You're over there.,Building fire / trapped persons,Michigan,2/06,Distressed,0.94,High
+INC_002,audio,C002,Hello. Is everything okay? Ah.,Murder / homicide,"Florida, Volusia County, Fla.",3/05,Calm,0.44,High
+INC_003,audio,C003,"Yes, I need a police officer over here. What's going on? Um...",Shooting,Texas,4/05,Distressed,0.4,Low
+INC_004,audio,C004,"Ma'am, my cat is a person. I had to go find it.",Unknown incident,"Nebraska, Omaha, Neb.",1/05,Distressed,0.7,Medium
+INC_005,audio,C005,"I don't have an emergency tube for this stuff, it just left my house just now.",Unknown incident,"Oregon, Aloha, Ore., Washington County",1/06,Distressed,0.52,Medium

@@ -21,8 +21,11 @@ build/
 *.mpg
 *.avi
 *.pdf
-*.csv
-!requirements.txt
+# Ignore large dataset CSVs in data folders
+**/data/*.csv
+# Allow output result CSVs to be tracked
+!**/output/*.csv
+!**/output/**/*.csv
 
 # Model weights
 *.pt
