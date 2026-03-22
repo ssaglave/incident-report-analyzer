@@ -3,50 +3,45 @@
 ## Dataset: 911 Recordings (Kaggle)
 
 This module uses the **911 Recordings: The First 6 Seconds** dataset from Kaggle.
+- **707 real 911 emergency call audio files** (.wav, 6 seconds each)
+- **Metadata CSV** with title, date, state, deaths, description for each call
 
 ### How to Get the Dataset
 
-#### Option A — Use the Kaggle Notebook (Recommended)
-
-The Kaggle notebook already includes working transcription code. You run it on Kaggle and download the output.
-
-1. **Open the notebook:** [911 Calls Wav2Vec2](https://www.kaggle.com/code/stpeteishii/911-calls-wav2vec2)
-2. **Sign in** to your Kaggle account
-3. Click **"Copy and Edit"** to fork the notebook
-4. **Run all cells** (uses free Kaggle GPU)
-5. The notebook will produce transcribed text output
-6. **Export the results as CSV** and save it to `audio/data/kaggle_transcripts.csv`
-
-Then run the pipeline:
-```bash
-python audio/audio_analyzer.py
-```
-The pipeline will auto-detect the CSV and skip Whisper transcription (Mode B).
-
-#### Option B — Download Raw Audio Files
-
-1. Go to the dataset: [911 Recordings: The First 6 Seconds](https://www.kaggle.com/datasets/louisedavis/911-recordings-the-first-6-seconds)
-2. Click **Download** and extract the `.wav` files
-3. Place all `.wav` files into `audio/data/`
-
-Then run the pipeline:
-```bash
-python audio/audio_analyzer.py
-```
-The pipeline will run Whisper speech-to-text on each file (Mode A).
-
-#### Option C — Use Kaggle API (Programmatic)
+#### Option A — Kaggle API (Recommended)
 
 ```bash
 # Install Kaggle CLI
 pip install kaggle
 
 # Set up API key: https://www.kaggle.com/docs/api
-# Download the dataset
-kaggle datasets download -d louisedavis/911-recordings-the-first-6-seconds -p audio/data/ --unzip
+# Download and extract the dataset
+kaggle datasets download -d louisteitelbaum/911-recordings-first-6-seconds -p audio/data/ --unzip
 ```
 
-#### Option D — Quick Test with Sample Files
+This places `911_first6sec/` folder with 707 `.wav` files + `911_metadata.csv` into `audio/data/`.
+
+Then run the pipeline:
+```bash
+python audio/audio_analyzer.py          # Process ALL 707 calls
+python audio/audio_analyzer.py --max 10 # Process first 10 only (quick test)
+```
+
+#### Option B — Manual Download from Kaggle
+
+1. Go to: [911 Recordings: The First 6 Seconds](https://www.kaggle.com/datasets/louisteitelbaum/911-recordings-first-6-seconds)
+2. **Sign in** to your Kaggle account
+3. Click **Download** and extract the zip
+4. Place the extracted `911_first6sec/` folder into `audio/data/`
+
+#### Option C — Use the Kaggle Notebook (Pre-transcribed)
+
+1. **Open the notebook:** [911 Calls Wav2Vec2](https://www.kaggle.com/code/stpeteishii/911-calls-wav2vec2)
+2. Click **"Copy and Edit"** to fork and run it on Kaggle
+3. Export the transcribed results as CSV → save to `audio/data/transcripts.csv`
+4. The pipeline will auto-detect the CSV (Mode B) and skip Whisper transcription
+
+#### Option D — Quick Test with Synthetic Samples
 
 ```bash
 python audio/generate_samples.py   # Generates 5 synthetic 911 call audio files
@@ -57,27 +52,31 @@ python audio/audio_analyzer.py     # Runs the pipeline on them
 
 ## Data Modes
 
-The pipeline automatically detects which mode to use based on what's in `audio/data/`:
+The pipeline auto-detects which mode to use based on what's in `audio/data/`:
 
 | Mode | Trigger | What Happens |
 |------|---------|-------------|
-| **Mode A** (Audio) | `.wav`/`.mp3` files found | Whisper transcription → Sentiment → NER → CSV |
-| **Mode B** (CSV) | `.csv` file found | Loads transcripts → Sentiment → NER → CSV |
+| **Mode A** (Kaggle) | `911_metadata.csv` found | Load metadata + Whisper on .wav → Sentiment → NER → CSV |
+| **Mode B** (CSV) | Other `.csv` with transcript column | Load transcripts → Sentiment → NER → CSV |
+| **Mode C** (Audio) | Only `.wav`/`.mp3` files | Whisper transcription → Sentiment → NER → CSV |
 
-> **Note:** If both `.csv` and audio files exist, Mode B (CSV) takes priority.
+> **Note:** Mode A (Kaggle) is checked first, then Mode B, then Mode C.
 
 ---
 
-## Expected CSV Input Format (Mode B)
+## Kaggle Metadata Columns Used
 
-The pipeline auto-detects column names. Any of these will work:
+The `911_metadata.csv` includes these columns — all used by the pipeline:
 
-| Purpose | Accepted Column Names |
-|---------|----------------------|
-| Transcript text | `transcript`, `transcription`, `text`, `description` |
-| Date/time | `date`, `Date`, `timestamp` |
-| Location/state | `state`, `State`, `location`, `Location`, `city` |
-| Fatalities | `deaths`, `Deaths`, `fatalities` |
+| Column | How It's Used |
+|--------|-------------|
+| `filename` | Links to the .wav audio file for Whisper transcription |
+| `description` | Combined with Whisper transcript for richer event classification |
+| `title` | Used as supplementary event info |
+| `date` | Mapped to Timestamp in output |
+| `state` | Used as fallback Location if NER finds none |
+| `deaths` | Boosts urgency score when > 0 |
+| `potential_death` | Slightly boosts urgency score |
 
 ---
 
