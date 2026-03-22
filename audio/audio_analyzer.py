@@ -1,9 +1,17 @@
 """
 Student 1 — Audio Analyst
 Processes emergency audio calls using:
-  - Stage 1: Load .wav/.mp3 audio files
+  - Stage 1: Load .wav/.mp3 audio files OR pre-transcribed CSV from Kaggle
   - Stage 2: Whisper (speech-to-text) + HuggingFace (sentiment)
   - Stage 3: spaCy NER (locations, persons, events) + urgency scoring
+
+Supports TWO data modes:
+  Mode A — Raw audio files (.wav, .mp3) → Whisper transcription → NLP
+  Mode B — Kaggle CSV with pre-transcribed text → NLP only (skips Whisper)
+
+Dataset: 911 Recordings: The First 6 Seconds (Kaggle)
+  https://www.kaggle.com/code/stpeteishii/911-calls-wav2vec2
+  https://www.kaggle.com/datasets/louisedavis/911-recordings-the-first-6-seconds
 
 Uses the COMMON pipeline: pipeline/base_pipeline.py
 """
@@ -18,6 +26,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from pipeline import BasePipeline, generate_incident_id, classify_severity
 
+import pandas as pd
 import whisper
 import spacy
 from transformers import pipeline as hf_pipeline
@@ -61,10 +70,14 @@ class AudioPipeline(BasePipeline):
         self.nlp = None
         self.sentiment_analyzer = None
 
-    def _load_models(self):
+        # Data mode: 'audio' (raw files) or 'csv' (pre-transcribed)
+        self.data_mode = None
+
+    def _load_models(self, need_whisper: bool = True):
         """Load all AI models before processing."""
-        self.logger.info("Loading Whisper model (base)...")
-        self.whisper_model = whisper.load_model("base")
+        if need_whisper:
+            self.logger.info("Loading Whisper model (base)...")
+            self.whisper_model = whisper.load_model("base")
 
         self.logger.info("Loading spaCy NER model...")
         self.nlp = spacy.load("en_core_web_sm")
@@ -81,9 +94,72 @@ class AudioPipeline(BasePipeline):
     # ═════════════════════════════════════════════════════════════════════════
 
     def load_data(self):
-        """Load audio files (.wav, .mp3, .flac) from data directory."""
+        """
+        Load data from the data directory. Supports two modes:
+
+        Mode A — Raw audio files (.wav, .mp3, .flac):
+            Whisper will transcribe each file in Stage 2.
+
+        Mode B — Pre-transcribed CSV (from Kaggle notebook output):
+            If a CSV file is found in data_dir, it loads transcripts directly.
+            This is useful when using the Kaggle 911 Calls + Wav2Vec2 notebook
+            which already produces transcriptions.
+
+            Expected CSV columns (flexible — will auto-detect):
+              - transcript / text / transcription  (the transcribed text)
+              - date / Date                        (optional)
+              - state / State / location           (optional)
+              - deaths / Deaths                    (optional)
+        """
+        # ── Check for CSV files first (Mode B: pre-transcribed) ──
+        csv_files = sorted(glob.glob(os.path.join(self.data_dir, "*.csv")))
+
+        if csv_files:
+            self.data_mode = "csv"
+            self.raw_data = []
+
+            for csv_file in csv_files:
+                self.logger.info(f"Loading pre-transcribed CSV: {os.path.basename(csv_file)}")
+                df = pd.read_csv(csv_file)
+                self.logger.info(f"  Columns: {list(df.columns)}")
+                self.logger.info(f"  Rows: {len(df)}")
+
+                # Auto-detect the transcript column
+                transcript_col = self._find_column(df, [
+                    "transcript", "transcription", "text", "description",
+                    "Transcript", "Transcription", "Text", "Description",
+                ])
+
+                # Auto-detect optional metadata columns
+                date_col = self._find_column(df, ["date", "Date", "DATE", "timestamp"])
+                state_col = self._find_column(df, [
+                    "state", "State", "location", "Location", "city", "City",
+                ])
+                deaths_col = self._find_column(df, ["deaths", "Deaths", "fatalities"])
+
+                for _, row in df.iterrows():
+                    transcript = str(row.get(transcript_col, "")) if transcript_col else ""
+                    if not transcript.strip() or transcript == "nan":
+                        continue
+
+                    self.raw_data.append({
+                        "source_file": csv_file,
+                        "transcript": transcript.strip(),
+                        "date": str(row.get(date_col, "")) if date_col else "",
+                        "location": str(row.get(state_col, "")) if state_col else "",
+                        "deaths": str(row.get(deaths_col, "")) if deaths_col else "",
+                    })
+
+            self.logger.info(
+                f"Mode B (CSV): Loaded {len(self.raw_data)} pre-transcribed records "
+                f"from {len(csv_files)} file(s)"
+            )
+            return
+
+        # ── Mode A: Raw audio files ──
         audio_extensions = ("*.wav", "*.mp3", "*.flac", "*.ogg")
         self.raw_data = []
+        self.data_mode = "audio"
 
         for ext in audio_extensions:
             self.raw_data.extend(
@@ -92,11 +168,19 @@ class AudioPipeline(BasePipeline):
 
         if not self.raw_data:
             self.logger.warning(
-                f"No audio files found in {self.data_dir}. "
-                "Run 'python audio/generate_samples.py' to create test data."
+                f"No audio or CSV files found in {self.data_dir}.\n"
+                "  Option 1: Run 'python audio/generate_samples.py' for test data\n"
+                "  Option 2: Download Kaggle dataset (see audio/README.md)"
             )
 
-        self.logger.info(f"Found {len(self.raw_data)} audio files")
+        self.logger.info(f"Mode A (Audio): Found {len(self.raw_data)} audio files")
+
+    def _find_column(self, df: pd.DataFrame, candidates: list) -> str:
+        """Find the first matching column name from a list of candidates."""
+        for col in candidates:
+            if col in df.columns:
+                return col
+        return None
 
     # ═════════════════════════════════════════════════════════════════════════
     # STAGE 2: AI PROCESSING
@@ -104,15 +188,26 @@ class AudioPipeline(BasePipeline):
 
     def process_data(self):
         """
-        Run Whisper speech-to-text and HuggingFace sentiment analysis
-        on each audio file.
+        Run AI models on the data.
+        - Mode A (audio): Whisper transcription + sentiment analysis
+        - Mode B (CSV): Sentiment analysis only (transcripts already available)
         """
-        # Load models on first run
-        if self.whisper_model is None:
-            self._load_models()
+        # Load models based on mode
+        need_whisper = (self.data_mode == "audio")
+        if self.nlp is None:
+            self._load_models(need_whisper=need_whisper)
 
         self.processed_data = []
 
+        if self.data_mode == "csv":
+            self._process_csv_data()
+        else:
+            self._process_audio_data()
+
+        self.logger.info(f"Processed {len(self.processed_data)} records")
+
+    def _process_audio_data(self):
+        """Mode A: Transcribe audio files with Whisper + sentiment analysis."""
         for i, audio_file in enumerate(self.raw_data, start=1):
             filename = os.path.basename(audio_file)
             self.logger.info(f"[{i}/{len(self.raw_data)}] Transcribing: {filename}")
@@ -129,24 +224,8 @@ class AudioPipeline(BasePipeline):
                 self.logger.warning(f"Empty transcript for {filename}, skipping.")
                 continue
 
-            # ── HuggingFace: Sentiment Analysis ──
-            try:
-                # Truncate to 512 tokens for the model
-                sentiment_result = self.sentiment_analyzer(transcript[:512])
-                sentiment_label = sentiment_result[0]["label"]   # POSITIVE / NEGATIVE
-                sentiment_score = sentiment_result[0]["score"]   # 0.0–1.0
-            except Exception as e:
-                self.logger.error(f"Sentiment error on {filename}: {e}")
-                sentiment_label = "UNKNOWN"
-                sentiment_score = 0.5
-
-            # Map sentiment to human-readable labels
-            if sentiment_label == "NEGATIVE":
-                sentiment_display = "Distressed"
-            elif sentiment_label == "POSITIVE":
-                sentiment_display = "Calm"
-            else:
-                sentiment_display = sentiment_label
+            # ── Sentiment Analysis ──
+            sentiment_display, sentiment_score = self._analyze_sentiment(transcript)
 
             self.processed_data.append({
                 "file": audio_file,
@@ -154,6 +233,9 @@ class AudioPipeline(BasePipeline):
                 "transcript": transcript,
                 "sentiment_label": sentiment_display,
                 "sentiment_score": sentiment_score,
+                "date": "",
+                "csv_location": "",
+                "deaths": "",
             })
 
             self.logger.info(
@@ -161,7 +243,50 @@ class AudioPipeline(BasePipeline):
                 f" | Sentiment: {sentiment_display} ({sentiment_score:.2f})"
             )
 
-        self.logger.info(f"Processed {len(self.processed_data)} audio files")
+    def _process_csv_data(self):
+        """Mode B: Run sentiment analysis on pre-transcribed text from CSV."""
+        for i, item in enumerate(self.raw_data, start=1):
+            transcript = item["transcript"]
+            self.logger.info(f"[{i}/{len(self.raw_data)}] Analyzing: {transcript[:60]}...")
+
+            # ── Sentiment Analysis ──
+            sentiment_display, sentiment_score = self._analyze_sentiment(transcript)
+
+            self.processed_data.append({
+                "file": item["source_file"],
+                "filename": os.path.basename(item["source_file"]),
+                "transcript": transcript,
+                "sentiment_label": sentiment_display,
+                "sentiment_score": sentiment_score,
+                "date": item.get("date", ""),
+                "csv_location": item.get("location", ""),
+                "deaths": item.get("deaths", ""),
+            })
+
+            self.logger.info(
+                f"  ✓ Sentiment: {sentiment_display} ({sentiment_score:.2f})"
+            )
+
+    def _analyze_sentiment(self, text: str) -> tuple:
+        """Run HuggingFace sentiment analysis. Returns (label, score)."""
+        try:
+            result = self.sentiment_analyzer(text[:512])
+            label = result[0]["label"]
+            score = result[0]["score"]
+        except Exception as e:
+            self.logger.error(f"Sentiment error: {e}")
+            label = "UNKNOWN"
+            score = 0.5
+
+        # Map to human-readable labels
+        if label == "NEGATIVE":
+            display = "Distressed"
+        elif label == "POSITIVE":
+            display = "Calm"
+        else:
+            display = label
+
+        return display, score
 
     # ═════════════════════════════════════════════════════════════════════════
     # STAGE 3: INFORMATION EXTRACTION
@@ -173,6 +298,7 @@ class AudioPipeline(BasePipeline):
         - spaCy NER for locations, persons
         - Keyword matching for event classification
         - Urgency scoring based on keywords + sentiment
+        - Use CSV metadata (date, state) when available
         """
         self.extracted_records = []
 
@@ -193,6 +319,11 @@ class AudioPipeline(BasePipeline):
                 elif ent.label_ == "ORG":
                     orgs.append(ent.text)
 
+            # If CSV provided a location/state, use it as fallback
+            csv_location = item.get("csv_location", "")
+            if csv_location and csv_location != "nan" and not locations:
+                locations.append(csv_location)
+
             # ── Event Classification ──
             extracted_event = self._classify_event(transcript)
 
@@ -201,8 +332,18 @@ class AudioPipeline(BasePipeline):
                 transcript, item["sentiment_label"], item["sentiment_score"]
             )
 
+            # Boost urgency if deaths are reported in CSV metadata
+            deaths = item.get("deaths", "")
+            if deaths and deaths not in ("", "0", "nan"):
+                urgency_score = min(urgency_score + 0.2, 1.0)
+
             # ── Severity ──
             severity = classify_severity(transcript, urgency_score)
+
+            # ── Timestamp from CSV metadata ──
+            timestamp = item.get("date", "")
+            if timestamp == "nan":
+                timestamp = ""
 
             # ── Build record following common schema ──
             record = {
@@ -212,7 +353,7 @@ class AudioPipeline(BasePipeline):
                 "Transcript": transcript,
                 "Extracted_Event": extracted_event,
                 "Location": ", ".join(locations) if locations else "",
-                "Timestamp": "",  # No timestamp in audio; can be filled during integration
+                "Timestamp": timestamp,
                 "Sentiment": item["sentiment_label"],
                 "Urgency_Score": round(urgency_score, 2),
                 "Severity": severity,
