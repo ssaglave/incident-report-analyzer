@@ -1,0 +1,33 @@
+# ===== Common =====
+pandas>=2.0.0
+numpy>=1.24.0
+
+# ===== Audio (Student 1) =====
+openai-whisper>=20230918
+soundfile>=0.12.0
+
+# ===== PDF (Student 2) =====
+PyMuPDF>=1.23.0
+pdfplumber>=0.10.0
+pytesseract>=0.3.10
+pdf2image>=1.16.0
+
+# ===== Image (Student 3) =====
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# ===== Video (Student 4) =====
+moviepy>=1.0.3
+imageio>=2.31.0
+
+# ===== Text (Student 5) =====
+spacy>=3.6.0
+nltk>=3.8.0
+transformers>=4.35.0
+torch>=2.0.0
+
+# ===== Integration & Dashboard =====
+streamlit>=1.28.0
+matplotlib>=3.7.0
+plotly>=5.17.0

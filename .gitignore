@@ -1,0 +1,41 @@
+# Virtual environment
+venv/
+env/
+.env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (large datasets — keep local, don't push)
+*.wav
+*.mp3
+*.mp4
+*.mpg
+*.avi
+*.pdf
+*.csv
+!requirements.txt
+
+# Model weights
+*.pt
+*.pth
+*.h5
+*.onnx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
