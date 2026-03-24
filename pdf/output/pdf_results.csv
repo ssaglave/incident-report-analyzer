@@ -1,0 +1,33 @@
+Incident_ID,Source,Report_ID,Department,Doc_Type,Date,Location,Officer,Summary,Severity
+INC_001,pdf,RPT_001,Arkansas State Police,Report,1033,Arkansas,Training Modules,"ARKANSAS POLICE DEPARTMENTS
+1033 PROGRAM TRAINING PLAN PROPOSAL
+Report ID: RPT_001 Date: 03/15/2024
+Submitted by: Arkansas State Police AdminisFtrisactiaoln Year: 2024-2025
+Program: Law Enforcement Support OffiRcee v(1ie0w33 S)tatus: APPROVED
+PARTICIPATING DEPARTMENTS
+Department Name Location Traini",Low
+INC_002,pdf,2024-001234,"Little Rock Police Department Incident Type: Larceny / Theft
+Officer",Theft,2024-001234,"525 Main Street, Little Rock, AR 72201",James Mitchell,"INCIDENT REPORT - LARCENY
+Case Number: 2024-001234 Date: 03/15/2024
+Department: Little Rock Police Department Incident Type: Larceny / Theft
+Officer: Officer James Mitchell (Badge: 45S21e)verity: Medium
+LOCATION
+525 Main Street, Little Rock, AR 72201
+INCIDENT DESCRIPTION
+A report of theft was filed ",Medium
+INC_003,pdf,2024-005678,INCIDENT REPORT - MOTOR,Accident,2024-005678,Interstate 49 at Exit 62,Sarah Chen,"INCIDENT REPORT - MOTOR VEHICLE ACCIDENT
+Case Number: 2024-005678 Date: 03/18/2024
+Department: Fayetteville Police Department Incident Type: Motor Vehicle Accident
+Officer: Officer Sarah Chen (Badge: 3847)Severity: Medium
+LOCATION
+Interstate 49 at Exit 62, Fayetteville, AR 72703
+INCIDENT DESCRIPTION",Medium
+INC_004,pdf,2024-009012,Springdale Police Department Incident Type,Burglary,2024-009012,"1847 Oak Avenue, Springdale, AR 72764","Patricia
+Williams","INCIDENT REPORT - BURGLARY
+Case Number: 2024-009012 Date: 03/20/2024
+Department: Springdale Police Department Incident Type: Residential Burglary
+Officer: Detective Marcus Rodriguez (BadgSee:v 2e1ri5ty6:) High
+LOCATION
+1847 Oak Avenue, Springdale, AR 72764
+INCIDENT DESCRIPTION
+A residential burglary",Medium
