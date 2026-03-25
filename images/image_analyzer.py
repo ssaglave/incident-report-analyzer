@@ -19,6 +19,10 @@ os.environ.setdefault(
     "YOLO_CONFIG_DIR",
     os.path.join(os.path.dirname(__file__), ".ultralytics"),
 )
+os.environ.setdefault(
+    "TORCH_HOME",
+    os.path.join(os.path.dirname(__file__), ".torch"),
+)
 
 from pipeline import BasePipeline, generate_incident_id, classify_severity
 
@@ -33,6 +37,14 @@ try:
     import pytesseract
 except ImportError:
     pytesseract = None
+
+try:
+    import torch
+    from torchvision.models import resnet18, ResNet18_Weights
+except ImportError:
+    torch = None
+    resnet18 = None
+    ResNet18_Weights = None
 
 
 SCENE_RULES = {
@@ -53,6 +65,44 @@ OCR_HIGH_SEVERITY_HINTS = (
 )
 
 MAX_ANNOTATED_IMAGES = 100
+
+SCENE_LABEL_KEYWORDS = {
+    "Fire Scene": {
+        "fire screen",
+        "fire engine",
+        "fireboat",
+        "torch",
+        "lighter",
+        "matchstick",
+        "volcano",
+        "smoke detector",
+        "fireplace",
+    },
+    "Accident Scene": {
+        "car wheel",
+        "ambulance",
+        "tow truck",
+        "police van",
+        "wreck",
+        "traffic light",
+        "street sign",
+    },
+    "Crime Scene": {
+        "revolver",
+        "rifle",
+        "assault rifle",
+        "holster",
+        "bulletproof vest",
+        "handcuffs",
+        "police van",
+    },
+    "Emergency Response Scene": {
+        "ambulance",
+        "fire engine",
+        "police van",
+        "rescue",
+    },
+}
 
 
 class ImagePipeline(BasePipeline):
@@ -81,15 +131,21 @@ class ImagePipeline(BasePipeline):
         self.class_names = {}
         self._ocr_available = None
         self.annotated_saved = 0
+        self.scene_model = None
+        self.scene_weights = None
+        self.scene_preprocess = None
+        self.scene_categories = []
+        self.dataset_root = data_dir
 
     # Stage 1: Data Ingestion
     def load_data(self):
         """Load image files from the data directory recursively."""
         image_extensions = ("*.jpg", "*.jpeg", "*.png", "*.bmp", "*.webp")
         self.raw_data = []
+        self.dataset_root = self._select_dataset_root()
 
         for ext in image_extensions:
-            pattern = os.path.join(self.data_dir, "**", ext)
+            pattern = os.path.join(self.dataset_root, "**", ext)
             self.raw_data.extend(glob.glob(pattern, recursive=True))
 
         self.raw_data = sorted(set(self.raw_data))
@@ -99,6 +155,33 @@ class ImagePipeline(BasePipeline):
             self.logger.warning(
                 "No images found. Add your Roboflow dataset images to images/data/"
             )
+
+    def _select_dataset_root(self) -> str:
+        """Choose the best dataset root under images/data."""
+        candidate_roots = []
+
+        direct_yaml = os.path.join(self.data_dir, "data.yaml")
+        if os.path.exists(direct_yaml):
+            candidate_roots.append(self.data_dir)
+
+        for yaml_path in glob.glob(os.path.join(self.data_dir, "**", "data.yaml"), recursive=True):
+            root = os.path.dirname(yaml_path)
+            candidate_roots.append(root)
+
+        if not candidate_roots:
+            return self.data_dir
+
+        def image_count(root: str) -> int:
+            count = 0
+            for ext in ("*.jpg", "*.jpeg", "*.png", "*.bmp", "*.webp"):
+                count += len(glob.glob(os.path.join(root, "**", ext), recursive=True))
+            return count
+
+        best_root = max(set(candidate_roots), key=image_count)
+        resolved_root = os.path.realpath(best_root)
+        if best_root != self.data_dir or resolved_root != best_root:
+            self.logger.info(f"Using dataset root: {resolved_root}")
+        return resolved_root
 
     # Stage 2: AI Processing
     def process_data(self):
@@ -119,6 +202,7 @@ class ImagePipeline(BasePipeline):
             if not detections:
                 detections = self._detect_objects(img_path)
             ocr_text = self._extract_text(img_path)
+            scene_prediction = self._predict_scene_label(img_path)
             annotated_path = self._save_annotated_image(img_path, detections)
 
             self.processed_data.append(
@@ -126,6 +210,7 @@ class ImagePipeline(BasePipeline):
                     "file": img_path,
                     "detections": detections,
                     "ocr_text": ocr_text,
+                    "scene_prediction": scene_prediction,
                     "annotated_path": annotated_path,
                 }
             )
@@ -134,25 +219,42 @@ class ImagePipeline(BasePipeline):
 
     def _load_models(self):
         """Load the detection model if ultralytics is installed."""
-        if self.detector is not None:
-            return
+        if self.detector is None:
+            if YOLO is None:
+                self.logger.warning(
+                    "ultralytics is not installed. Object detection will be skipped."
+                )
+            else:
+                try:
+                    self.detector = YOLO(self.model_path)
+                    self.logger.info(f"Loaded YOLO model: {self.model_path}")
+                except Exception as exc:
+                    self.logger.warning(f"Could not load YOLO model '{self.model_path}': {exc}")
+                    self.detector = None
 
-        if YOLO is None:
-            self.logger.warning(
-                "ultralytics is not installed. Object detection will be skipped."
-            )
-            return
-
-        try:
-            self.detector = YOLO(self.model_path)
-            self.logger.info(f"Loaded YOLO model: {self.model_path}")
-        except Exception as exc:
-            self.logger.warning(f"Could not load YOLO model '{self.model_path}': {exc}")
-            self.detector = None
+        if self.scene_model is None:
+            if resnet18 is None or ResNet18_Weights is None or torch is None:
+                self.logger.warning(
+                    "torchvision is not installed. Scene classification will use rules only."
+                )
+            else:
+                try:
+                    self.scene_weights = ResNet18_Weights.DEFAULT
+                    self.scene_model = resnet18(weights=self.scene_weights)
+                    self.scene_model.eval()
+                    self.scene_preprocess = self.scene_weights.transforms()
+                    self.scene_categories = list(self.scene_weights.meta.get("categories", []))
+                    self.logger.info("Loaded pretrained scene classifier: ResNet18")
+                except Exception as exc:
+                    self.logger.warning(f"Could not load ResNet18 scene classifier: {exc}")
+                    self.scene_model = None
+                    self.scene_weights = None
+                    self.scene_preprocess = None
+                    self.scene_categories = []
 
     def _load_dataset_class_names(self) -> Dict[int, str]:
         """Read class names from a YOLO data.yaml file when present."""
-        yaml_path = os.path.join(self.data_dir, "data.yaml")
+        yaml_path = os.path.join(self.dataset_root, "data.yaml")
         if not os.path.exists(yaml_path):
             return {}
 
@@ -269,7 +371,14 @@ class ImagePipeline(BasePipeline):
             return ""
 
         if self._ocr_available is None:
-            self._ocr_available = shutil.which("tesseract") is not None
+            tesseract_path = shutil.which("tesseract")
+            if not tesseract_path:
+                common_windows_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+                if os.path.exists(common_windows_path):
+                    tesseract_path = common_windows_path
+            self._ocr_available = tesseract_path is not None
+            if tesseract_path:
+                pytesseract.pytesseract.tesseract_cmd = tesseract_path
             if not self._ocr_available:
                 self.logger.warning(
                     "Tesseract is not installed or not in PATH. OCR will be skipped."
@@ -286,6 +395,36 @@ class ImagePipeline(BasePipeline):
                 f"OCR failed for {os.path.basename(img_path)}: {exc}"
             )
             return ""
+
+    def _predict_scene_label(self, img_path: str) -> Dict[str, str]:
+        """Run a pretrained ResNet classifier and return the top scene hint."""
+        if self.scene_model is None or self.scene_preprocess is None or not self.scene_categories:
+            return {"label": "", "scene_type": ""}
+
+        try:
+            image = Image.open(img_path).convert("RGB")
+            tensor = self.scene_preprocess(image).unsqueeze(0)
+            with torch.inference_mode():
+                output = self.scene_model(tensor)
+                class_index = int(output.argmax(dim=1).item())
+            label = self.scene_categories[class_index]
+            return {
+                "label": label,
+                "scene_type": self._map_classifier_label_to_scene(label),
+            }
+        except Exception as exc:
+            self.logger.warning(
+                f"Scene classification failed for {os.path.basename(img_path)}: {exc}"
+            )
+            return {"label": "", "scene_type": ""}
+
+    def _map_classifier_label_to_scene(self, label: str) -> str:
+        """Map ImageNet-style labels into assignment scene categories."""
+        lowered = label.lower()
+        for scene_type, keywords in SCENE_LABEL_KEYWORDS.items():
+            if lowered in keywords or any(keyword in lowered for keyword in keywords):
+                return scene_type
+        return ""
 
     def _save_annotated_image(self, img_path: str, detections: List[Dict]) -> str:
         """Save an annotated copy of the image with detected boxes."""
@@ -321,7 +460,11 @@ class ImagePipeline(BasePipeline):
         for idx, item in enumerate(self.processed_data, start=1):
             detections = item["detections"]
             object_names = [det["class"] for det in detections]
-            scene_type = self._classify_scene(object_names, item["ocr_text"])
+            scene_type = self._classify_scene(
+                object_names,
+                item["ocr_text"],
+                item.get("scene_prediction", {}),
+            )
             confidence = self._average_confidence(detections)
             bbox_summary = self._summarize_boxes(detections)
             severity = self._classify_image_severity(
@@ -346,8 +489,17 @@ class ImagePipeline(BasePipeline):
 
         self.logger.info(f"Extracted {len(self.extracted_records)} records")
 
-    def _classify_scene(self, object_names: List[str], ocr_text: str) -> str:
-        """Choose a scene label from detected objects and OCR hints."""
+    def _classify_scene(
+        self,
+        object_names: List[str],
+        ocr_text: str,
+        scene_prediction: Dict[str, str],
+    ) -> str:
+        """Choose a scene label from pretrained classification, detections, and OCR."""
+        predicted_scene = scene_prediction.get("scene_type", "")
+        if predicted_scene:
+            return predicted_scene
+
         object_set = {name.lower() for name in object_names}
 
         for scene_name, keywords in SCENE_RULES.items():
