@@ -1,0 +1,81 @@
+Incident_ID,Text_ID,Crime_Type,Location_Entity,Sentiment,Topic,Severity
+INC_001,TXT_001,shooting,"Hoover, AL",NEGATIVE,shooting,High
+INC_002,TXT_002,police investigation,,NEGATIVE,police investigation,High
+INC_003,TXT_003,police investigation,Chicago,NEGATIVE,police investigation,High
+INC_004,TXT_004,police investigation,,NEGATIVE,police investigation,High
+INC_005,TXT_005,police investigation,,NEGATIVE,police investigation,High
+INC_006,TXT_006,police investigation,,NEGATIVE,police investigation,Medium
+INC_007,TXT_007,robbery,,NEGATIVE,robbery,Medium
+INC_008,TXT_008,public disturbance,Pakistan,NEGATIVE,public disturbance,Low
+INC_009,TXT_009,police investigation,,NEGATIVE,police investigation,High
+INC_010,TXT_010,fire,Baltimore,POSITIVE,fire,Medium
+INC_011,TXT_011,police investigation,Redbridge,NEGATIVE,police investigation,High
+INC_012,TXT_012,police investigation,,NEGATIVE,police investigation,High
+INC_013,TXT_013,police investigation,,POSITIVE,police investigation,High
+INC_014,TXT_014,police investigation,,NEGATIVE,police investigation,High
+INC_015,TXT_015,police investigation,,NEGATIVE,police investigation,Medium
+INC_016,TXT_016,police investigation,,NEGATIVE,police investigation,High
+INC_017,TXT_017,police investigation,Delhi,NEGATIVE,police investigation,Medium
+INC_018,TXT_018,police investigation,Mumbai,NEGATIVE,police investigation,High
+INC_019,TXT_019,public disturbance,Delhi,NEGATIVE,public disturbance,Low
+INC_020,TXT_020,police investigation,,NEGATIVE,police investigation,High
+INC_021,TXT_021,police investigation,,NEGATIVE,police investigation,High
+INC_022,TXT_022,police investigation,,NEGATIVE,police investigation,High
+INC_023,TXT_023,police investigation,,NEGATIVE,police investigation,High
+INC_024,TXT_024,police investigation,Onitsha,NEGATIVE,police investigation,High
+INC_025,TXT_025,police investigation,,NEGATIVE,police investigation,High
+INC_026,TXT_026,police investigation,,NEGATIVE,police investigation,Medium
+INC_027,TXT_027,police investigation,Petaluma,NEGATIVE,police investigation,Medium
+INC_028,TXT_028,police investigation,Bay Area,NEGATIVE,police investigation,High
+INC_029,TXT_029,police investigation,,NEGATIVE,police investigation,High
+INC_030,TXT_030,police investigation,St. Louis County,POSITIVE,police investigation,High
+INC_031,TXT_031,assault,,NEGATIVE,assault,Medium
+INC_032,TXT_032,assault,,NEGATIVE,assault,Medium
+INC_033,TXT_033,shooting,Pontchartrain Park,POSITIVE,shooting,High
+INC_034,TXT_034,assault,,NEGATIVE,assault,Medium
+INC_035,TXT_035,police investigation,,NEGATIVE,police investigation,High
+INC_036,TXT_036,police investigation,Petaluma,NEGATIVE,police investigation,Medium
+INC_037,TXT_037,police investigation,,NEGATIVE,police investigation,High
+INC_038,TXT_038,police investigation,Petaluma,NEGATIVE,police investigation,Medium
+INC_039,TXT_039,shooting,Pontchartrain Park,NEGATIVE,shooting,High
+INC_040,TXT_040,police investigation,Detroit,NEGATIVE,police investigation,High
+INC_041,TXT_041,public disturbance,,NEGATIVE,public disturbance,Low
+INC_042,TXT_042,police investigation,,NEGATIVE,police investigation,Low
+INC_043,TXT_043,police investigation,,NEGATIVE,police investigation,Low
+INC_044,TXT_044,police investigation,Lincolnshire,POSITIVE,police investigation,High
+INC_045,TXT_045,police investigation,Petaluma,NEGATIVE,police investigation,Medium
+INC_046,TXT_046,police investigation,,NEGATIVE,police investigation,High
+INC_047,TXT_047,police investigation,,NEGATIVE,police investigation,High
+INC_048,TXT_048,police investigation,,POSITIVE,police investigation,Medium
+INC_049,TXT_049,police investigation,,NEGATIVE,police investigation,High
+INC_050,TXT_050,police investigation,,NEGATIVE,police investigation,Medium
+INC_051,TXT_051,shooting,Pontchartrain Park,NEGATIVE,shooting,High
+INC_052,TXT_052,shooting,,POSITIVE,shooting,High
+INC_053,TXT_053,police investigation,"Simi Valley, Simi Valley's",NEGATIVE,police investigation,High
+INC_054,TXT_054,police investigation,Pontchartrain Park,NEGATIVE,police investigation,High
+INC_055,TXT_055,public disturbance,,NEGATIVE,public disturbance,High
+INC_056,TXT_056,police investigation,,NEGATIVE,police investigation,High
+INC_057,TXT_057,shooting,Pontchartrain Park,NEGATIVE,shooting,High
+INC_058,TXT_058,police investigation,Springfield,POSITIVE,police investigation,High
+INC_059,TXT_059,police investigation,,POSITIVE,police investigation,High
+INC_060,TXT_060,police investigation,West Yorkshire’s,NEGATIVE,police investigation,High
+INC_061,TXT_061,police investigation,San Francisco,NEGATIVE,police investigation,Medium
+INC_062,TXT_062,police investigation,,NEGATIVE,police investigation,High
+INC_063,TXT_063,police investigation,,NEGATIVE,police investigation,Medium
+INC_064,TXT_064,police investigation,,NEGATIVE,police investigation,Medium
+INC_065,TXT_065,police investigation,,NEGATIVE,police investigation,Medium
+INC_066,TXT_066,police investigation,,NEGATIVE,police investigation,Medium
+INC_067,TXT_067,police investigation,,NEGATIVE,police investigation,Medium
+INC_068,TXT_068,police investigation,,NEGATIVE,police investigation,Medium
+INC_069,TXT_069,police investigation,,NEGATIVE,police investigation,Medium
+INC_070,TXT_070,police investigation,,POSITIVE,police investigation,High
+INC_071,TXT_071,public disturbance,,NEGATIVE,public disturbance,Medium
+INC_072,TXT_072,police investigation,,NEGATIVE,police investigation,High
+INC_073,TXT_073,police investigation,,POSITIVE,police investigation,Medium
+INC_074,TXT_074,public disturbance,,NEGATIVE,public disturbance,Medium
+INC_075,TXT_075,police investigation,,NEGATIVE,police investigation,High
+INC_076,TXT_076,police investigation,,NEGATIVE,police investigation,High
+INC_077,TXT_077,police investigation,,NEGATIVE,police investigation,High
+INC_078,TXT_078,police investigation,,NEGATIVE,police investigation,High
+INC_079,TXT_079,police investigation,,NEGATIVE,police investigation,High
+INC_080,TXT_080,police investigation,,NEGATIVE,police investigation,High
