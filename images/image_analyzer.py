@@ -104,6 +104,24 @@ SCENE_LABEL_KEYWORDS = {
     },
 }
 
+# Dataset/model metadata is kept configurable so the code can document
+# which Roboflow source was used without hardcoding credentials.
+ROBOFLOW_PROJECT_SLUG = os.getenv(
+    "ROBOFLOW_PROJECT_SLUG",
+    "fire-dataset-for-yolov8-vbljx",
+)
+ROBOFLOW_MODEL_VERSION = os.getenv("ROBOFLOW_MODEL_VERSION", "2")
+ROBOFLOW_WORKSPACE = os.getenv("ROBOFLOW_WORKSPACE", "fire-detection-dataset")
+ROBOFLOW_MODEL_URL = os.getenv(
+    "ROBOFLOW_MODEL_URL",
+    f"https://universe.roboflow.com/{ROBOFLOW_WORKSPACE}/"
+    f"{ROBOFLOW_PROJECT_SLUG}/model/{ROBOFLOW_MODEL_VERSION}",
+)
+ROBOFLOW_MODEL_ID = os.getenv(
+    "ROBOFLOW_MODEL_ID",
+    f"{ROBOFLOW_PROJECT_SLUG}/{ROBOFLOW_MODEL_VERSION}",
+)
+
 
 class ImagePipeline(BasePipeline):
     """Image analysis pipeline - plugs into the common 5-stage framework."""
@@ -143,6 +161,11 @@ class ImagePipeline(BasePipeline):
         image_extensions = ("*.jpg", "*.jpeg", "*.png", "*.bmp", "*.webp")
         self.raw_data = []
         self.dataset_root = self._select_dataset_root()
+        self.logger.info(
+            "Image dataset source: %s (model_id=%s)",
+            ROBOFLOW_MODEL_URL,
+            ROBOFLOW_MODEL_ID,
+        )
 
         for ext in image_extensions:
             pattern = os.path.join(self.dataset_root, "**", ext)
