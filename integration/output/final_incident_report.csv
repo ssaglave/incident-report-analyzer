@@ -1,0 +1,702 @@
+Incident_ID,Audio_Event,PDF_Doc_Type,Image_Objects,Video_Event,Text_Crime_Type,Severity
+INC_001,Building fire / trapped persons,Burglary,N/A,N/A,shooting,Critical
+INC_002,Murder / homicide,Accident,N/A,N/A,police investigation,High
+INC_003,Shooting,Assault,N/A,N/A,police investigation,High
+INC_004,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_005,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_006,Murder / homicide,N/A,N/A,N/A,police investigation,Medium
+INC_007,Murder / homicide,N/A,N/A,N/A,robbery,Medium
+INC_008,Murder / homicide,N/A,N/A,N/A,public disturbance,Medium
+INC_009,Murder / homicide,N/A,N/A,N/A,police investigation,High
+INC_010,Building fire / trapped persons,N/A,N/A,N/A,fire,High
+INC_011,Medical emergency,N/A,N/A,N/A,police investigation,High
+INC_012,Road accident,N/A,N/A,N/A,police investigation,High
+INC_013,Building fire / trapped persons,N/A,N/A,N/A,police investigation,Critical
+INC_014,Road accident,N/A,N/A,N/A,police investigation,High
+INC_015,Unknown incident,N/A,N/A,N/A,police investigation,Medium
+INC_016,Domestic disturbance,N/A,N/A,N/A,police investigation,High
+INC_017,Unknown incident,N/A,N/A,N/A,police investigation,Medium
+INC_018,Shooting,N/A,N/A,N/A,police investigation,Critical
+INC_019,Murder / homicide,N/A,N/A,N/A,public disturbance,High
+INC_020,Road accident,N/A,N/A,N/A,police investigation,High
+INC_021,Road accident,N/A,N/A,N/A,police investigation,High
+INC_022,Medical emergency,N/A,N/A,N/A,police investigation,Critical
+INC_023,Murder / homicide,N/A,N/A,N/A,police investigation,Critical
+INC_024,Assault / violence,N/A,N/A,N/A,police investigation,High
+INC_025,Murder / homicide,N/A,N/A,N/A,police investigation,Critical
+INC_026,Assault / violence,N/A,N/A,N/A,police investigation,High
+INC_027,Unknown incident,N/A,N/A,N/A,police investigation,Medium
+INC_028,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_029,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_030,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_031,Unknown incident,N/A,N/A,N/A,assault,Medium
+INC_032,Unknown incident,N/A,N/A,N/A,assault,Medium
+INC_033,Murder / homicide,N/A,N/A,N/A,shooting,Critical
+INC_034,Shooting,N/A,N/A,N/A,assault,Medium
+INC_035,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_036,Murder / homicide,N/A,N/A,N/A,police investigation,Medium
+INC_037,Murder / homicide,N/A,N/A,N/A,police investigation,High
+INC_038,Kidnapping / missing,N/A,N/A,N/A,police investigation,Medium
+INC_039,Shooting,N/A,N/A,N/A,shooting,Critical
+INC_040,Medical emergency,N/A,N/A,N/A,police investigation,High
+INC_041,Shooting,N/A,N/A,N/A,public disturbance,Medium
+INC_042,Shooting,N/A,N/A,N/A,police investigation,Medium
+INC_043,Shooting,N/A,N/A,N/A,police investigation,High
+INC_044,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_045,Unknown incident,N/A,N/A,N/A,police investigation,Medium
+INC_046,Murder / homicide,N/A,N/A,N/A,police investigation,Critical
+INC_047,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_048,Road accident,N/A,N/A,N/A,police investigation,Medium
+INC_049,Building fire / trapped persons,N/A,N/A,N/A,police investigation,High
+INC_050,Kidnapping / missing,N/A,N/A,N/A,police investigation,Medium
+INC_051,Murder / homicide,N/A,N/A,N/A,shooting,High
+INC_052,Shooting,N/A,N/A,N/A,shooting,Critical
+INC_053,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_054,Kidnapping / missing,N/A,N/A,N/A,police investigation,High
+INC_055,Shooting,N/A,N/A,N/A,public disturbance,Critical
+INC_056,Road accident,N/A,N/A,N/A,police investigation,Critical
+INC_057,Murder / homicide,N/A,N/A,N/A,shooting,Critical
+INC_058,Assault / violence,N/A,N/A,N/A,police investigation,High
+INC_059,Shooting,N/A,N/A,N/A,police investigation,Critical
+INC_060,Assault / violence,N/A,N/A,N/A,police investigation,High
+INC_061,Shooting,N/A,N/A,N/A,police investigation,High
+INC_062,Building fire / trapped persons,N/A,N/A,N/A,police investigation,Critical
+INC_063,Shooting,N/A,N/A,N/A,police investigation,High
+INC_064,Road accident,N/A,N/A,N/A,police investigation,Medium
+INC_065,Kidnapping / missing,N/A,N/A,N/A,police investigation,High
+INC_066,Murder / homicide,N/A,N/A,N/A,police investigation,High
+INC_067,Murder / homicide,N/A,N/A,N/A,police investigation,High
+INC_068,Shooting,N/A,N/A,N/A,police investigation,Medium
+INC_069,Medical emergency,N/A,N/A,N/A,police investigation,High
+INC_070,Unknown incident,N/A,N/A,N/A,police investigation,High
+INC_071,Robbery / theft,N/A,N/A,N/A,public disturbance,High
+INC_072,Road accident,N/A,N/A,N/A,police investigation,High
+INC_073,Unknown incident,N/A,N/A,N/A,police investigation,Medium
+INC_074,Unknown incident,N/A,N/A,N/A,public disturbance,Medium
+INC_075,Murder / homicide,N/A,N/A,N/A,police investigation,Critical
+INC_076,Road accident,N/A,N/A,N/A,police investigation,High
+INC_077,Robbery / theft,N/A,N/A,N/A,police investigation,High
+INC_078,Domestic disturbance,N/A,N/A,N/A,police investigation,High
+INC_079,Shooting,N/A,N/A,N/A,police investigation,Critical
+INC_080,Domestic disturbance,N/A,N/A,N/A,police investigation,Critical
+INC_081,Domestic disturbance,N/A,N/A,N/A,N/A,High
+INC_082,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_083,Shooting,N/A,N/A,N/A,N/A,High
+INC_084,Shooting,N/A,N/A,N/A,N/A,High
+INC_085,Shooting,N/A,N/A,N/A,N/A,High
+INC_086,Shooting,N/A,N/A,N/A,N/A,High
+INC_087,Road accident,N/A,N/A,N/A,N/A,Low
+INC_088,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_089,Shooting,N/A,N/A,N/A,N/A,High
+INC_090,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_091,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_092,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_093,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_094,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_095,Robbery / theft,N/A,N/A,N/A,N/A,Low
+INC_096,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_097,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_098,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_099,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_100,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_101,Shooting,N/A,N/A,N/A,N/A,High
+INC_102,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_103,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_104,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_105,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_106,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_107,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_108,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_109,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_110,Domestic disturbance,N/A,N/A,N/A,N/A,Medium
+INC_111,Shooting,N/A,N/A,N/A,N/A,High
+INC_112,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_113,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_114,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_115,Road accident,N/A,N/A,N/A,N/A,Low
+INC_116,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_117,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_118,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_119,Shooting,N/A,N/A,N/A,N/A,High
+INC_120,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_121,Public disturbance,N/A,N/A,N/A,N/A,High
+INC_122,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_123,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_124,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_125,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_126,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_127,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_128,Shooting,N/A,N/A,N/A,N/A,High
+INC_129,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_130,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_131,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_132,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_133,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_134,Shooting,N/A,N/A,N/A,N/A,High
+INC_135,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_136,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_137,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_138,Shooting,N/A,N/A,N/A,N/A,High
+INC_139,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_140,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_141,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_142,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_143,Kidnapping / missing,N/A,N/A,N/A,N/A,Low
+INC_144,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_145,Shooting,N/A,N/A,N/A,N/A,High
+INC_146,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_147,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_148,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_149,Shooting,N/A,N/A,N/A,N/A,High
+INC_150,Shooting,N/A,N/A,N/A,N/A,High
+INC_151,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_152,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_153,Shooting,N/A,N/A,N/A,N/A,High
+INC_154,Shooting,N/A,N/A,N/A,N/A,High
+INC_155,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_156,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_157,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_158,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_159,Road accident,N/A,N/A,N/A,N/A,Low
+INC_160,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_161,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_162,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_163,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_164,Shooting,N/A,N/A,N/A,N/A,High
+INC_165,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_166,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_167,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_168,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_169,Shooting,N/A,N/A,N/A,N/A,High
+INC_170,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_171,Shooting,N/A,N/A,N/A,N/A,High
+INC_172,Shooting,N/A,N/A,N/A,N/A,High
+INC_173,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_174,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_175,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_176,Robbery / theft,N/A,N/A,N/A,N/A,Low
+INC_177,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_178,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_179,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_180,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_181,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_182,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_183,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_184,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_185,Shooting,N/A,N/A,N/A,N/A,High
+INC_186,Shooting,N/A,N/A,N/A,N/A,High
+INC_187,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_188,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_189,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_190,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_191,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_192,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_193,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_194,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_195,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_196,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_197,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_198,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_199,Shooting,N/A,N/A,N/A,N/A,High
+INC_200,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_201,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_202,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_203,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_204,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_205,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_206,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_207,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_208,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_209,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_210,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_211,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_212,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_213,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_214,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_215,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_216,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_217,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_218,Shooting,N/A,N/A,N/A,N/A,High
+INC_219,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_220,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_221,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_222,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_223,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_224,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_225,Road accident,N/A,N/A,N/A,N/A,Low
+INC_226,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_227,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_228,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_229,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_230,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_231,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_232,Murder / homicide,N/A,N/A,N/A,N/A,Low
+INC_233,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_234,Shooting,N/A,N/A,N/A,N/A,High
+INC_235,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_236,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_237,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_238,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_239,Shooting,N/A,N/A,N/A,N/A,High
+INC_240,Shooting,N/A,N/A,N/A,N/A,High
+INC_241,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_242,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_243,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_244,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_245,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_246,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_247,Shooting,N/A,N/A,N/A,N/A,High
+INC_248,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_249,Road accident,N/A,N/A,N/A,N/A,Low
+INC_250,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_251,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_252,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_253,Shooting,N/A,N/A,N/A,N/A,High
+INC_254,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_255,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_256,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_257,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_258,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_259,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_260,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_261,Shooting,N/A,N/A,N/A,N/A,High
+INC_262,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_263,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_264,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_265,Shooting,N/A,N/A,N/A,N/A,High
+INC_266,Shooting,N/A,N/A,N/A,N/A,High
+INC_267,Shooting,N/A,N/A,N/A,N/A,High
+INC_268,Shooting,N/A,N/A,N/A,N/A,High
+INC_269,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_270,Shooting,N/A,N/A,N/A,N/A,High
+INC_271,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_272,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_273,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_274,Medical emergency,N/A,N/A,N/A,N/A,High
+INC_275,Shooting,N/A,N/A,N/A,N/A,Low
+INC_276,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_277,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_278,Shooting,N/A,N/A,N/A,N/A,High
+INC_279,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_280,Unknown incident,N/A,N/A,N/A,N/A,High
+INC_281,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_282,Medical emergency,N/A,N/A,N/A,N/A,Low
+INC_283,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_284,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_285,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_286,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_287,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_288,Road accident,N/A,N/A,N/A,N/A,High
+INC_289,Road accident,N/A,N/A,N/A,N/A,High
+INC_290,Road accident,N/A,N/A,N/A,N/A,High
+INC_291,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_292,Shooting,N/A,N/A,N/A,N/A,High
+INC_293,Building fire / trapped persons,N/A,N/A,N/A,N/A,Low
+INC_294,Public disturbance,N/A,N/A,N/A,N/A,Low
+INC_295,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_296,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_297,Shooting,N/A,N/A,N/A,N/A,High
+INC_298,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_299,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_300,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_301,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_302,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_303,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_304,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_305,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_306,Shooting,N/A,N/A,N/A,N/A,High
+INC_307,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_308,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_309,Shooting,N/A,N/A,N/A,N/A,High
+INC_310,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_311,Shooting,N/A,N/A,N/A,N/A,High
+INC_312,Shooting,N/A,N/A,N/A,N/A,High
+INC_313,Shooting,N/A,N/A,N/A,N/A,High
+INC_314,Shooting,N/A,N/A,N/A,N/A,High
+INC_315,Shooting,N/A,N/A,N/A,N/A,High
+INC_316,Shooting,N/A,N/A,N/A,N/A,High
+INC_317,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_318,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_319,Shooting,N/A,N/A,N/A,N/A,High
+INC_320,Shooting,N/A,N/A,N/A,N/A,High
+INC_321,Shooting,N/A,N/A,N/A,N/A,High
+INC_322,Robbery / theft,N/A,N/A,N/A,N/A,High
+INC_323,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_324,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_325,Shooting,N/A,N/A,N/A,N/A,High
+INC_326,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_327,Shooting,N/A,N/A,N/A,N/A,High
+INC_328,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_329,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_330,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_331,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_332,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_333,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_334,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_335,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_336,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_337,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_338,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_339,Kidnapping / missing,N/A,N/A,N/A,N/A,Low
+INC_340,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_341,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_342,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_343,Road accident,N/A,N/A,N/A,N/A,High
+INC_344,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_345,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_346,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_347,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_348,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_349,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_350,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_351,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_352,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_353,Kidnapping / missing,N/A,N/A,N/A,N/A,High
+INC_354,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_355,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_356,Medical emergency,N/A,N/A,N/A,N/A,High
+INC_357,Medical emergency,N/A,N/A,N/A,N/A,High
+INC_358,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_359,Domestic disturbance,N/A,N/A,N/A,N/A,High
+INC_360,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_361,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_362,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_363,Road accident,N/A,N/A,N/A,N/A,High
+INC_364,Road accident,N/A,N/A,N/A,N/A,High
+INC_365,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_366,Road accident,N/A,N/A,N/A,N/A,Low
+INC_367,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_368,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_369,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_370,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_371,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_372,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_373,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_374,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_375,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_376,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_377,Shooting,N/A,N/A,N/A,N/A,High
+INC_378,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_379,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_380,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_381,Shooting,N/A,N/A,N/A,N/A,High
+INC_382,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_383,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_384,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_385,Shooting,N/A,N/A,N/A,N/A,High
+INC_386,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_387,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_388,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_389,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_390,Public disturbance,N/A,N/A,N/A,N/A,High
+INC_391,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_392,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_393,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_394,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_395,Shooting,N/A,N/A,N/A,N/A,High
+INC_396,Medical emergency,N/A,N/A,N/A,N/A,High
+INC_397,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_398,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_399,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_400,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_401,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_402,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_403,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_404,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_405,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_406,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_407,Shooting,N/A,N/A,N/A,N/A,High
+INC_408,Unknown incident,N/A,N/A,N/A,N/A,High
+INC_409,Road accident,N/A,N/A,N/A,N/A,High
+INC_410,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_411,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_412,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_413,Shooting,N/A,N/A,N/A,N/A,High
+INC_414,Shooting,N/A,N/A,N/A,N/A,High
+INC_415,Shooting,N/A,N/A,N/A,N/A,High
+INC_416,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_417,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_418,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_419,Shooting,N/A,N/A,N/A,N/A,High
+INC_420,Kidnapping / missing,N/A,N/A,N/A,N/A,Low
+INC_421,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_422,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_423,Shooting,N/A,N/A,N/A,N/A,High
+INC_424,Shooting,N/A,N/A,N/A,N/A,High
+INC_425,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_426,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_427,Kidnapping / missing,N/A,N/A,N/A,N/A,Low
+INC_428,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_429,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_430,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_431,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_432,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_433,Shooting,N/A,N/A,N/A,N/A,High
+INC_434,Shooting,N/A,N/A,N/A,N/A,High
+INC_435,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_436,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_437,Shooting,N/A,N/A,N/A,N/A,High
+INC_438,Kidnapping / missing,N/A,N/A,N/A,N/A,Low
+INC_439,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_440,Shooting,N/A,N/A,N/A,N/A,High
+INC_441,Shooting,N/A,N/A,N/A,N/A,High
+INC_442,Road accident,N/A,N/A,N/A,N/A,High
+INC_443,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_444,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_445,Shooting,N/A,N/A,N/A,N/A,High
+INC_446,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_447,Shooting,N/A,N/A,N/A,N/A,High
+INC_448,Medical emergency,N/A,N/A,N/A,N/A,High
+INC_449,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_450,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_451,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_452,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_453,Domestic disturbance,N/A,N/A,N/A,N/A,High
+INC_454,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_455,Road accident,N/A,N/A,N/A,N/A,Low
+INC_456,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_457,Medical emergency,N/A,N/A,N/A,N/A,High
+INC_458,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_459,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_460,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_461,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_462,Shooting,N/A,N/A,N/A,N/A,Low
+INC_463,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_464,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_465,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_466,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_467,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_468,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_469,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_470,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_471,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_472,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_473,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_474,Shooting,N/A,N/A,N/A,N/A,High
+INC_475,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_476,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_477,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_478,Kidnapping / missing,N/A,N/A,N/A,N/A,Low
+INC_479,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_480,Shooting,N/A,N/A,N/A,N/A,High
+INC_481,Shooting,N/A,N/A,N/A,N/A,High
+INC_482,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_483,Building fire / trapped persons,N/A,N/A,N/A,N/A,Low
+INC_484,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_485,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_486,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_487,Domestic disturbance,N/A,N/A,N/A,N/A,Low
+INC_488,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_489,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_490,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_491,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_492,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_493,Domestic disturbance,N/A,N/A,N/A,N/A,Medium
+INC_494,Shooting,N/A,N/A,N/A,N/A,High
+INC_495,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_496,Domestic disturbance,N/A,N/A,N/A,N/A,Medium
+INC_497,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_498,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_499,Shooting,N/A,N/A,N/A,N/A,High
+INC_500,Shooting,N/A,N/A,N/A,N/A,High
+INC_501,Shooting,N/A,N/A,N/A,N/A,High
+INC_502,Shooting,N/A,N/A,N/A,N/A,High
+INC_503,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_504,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_505,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_506,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_507,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_508,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_509,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_510,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_511,Road accident,N/A,N/A,N/A,N/A,High
+INC_512,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_513,Shooting,N/A,N/A,N/A,N/A,High
+INC_514,Kidnapping / missing,N/A,N/A,N/A,N/A,High
+INC_515,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_516,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_517,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_518,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_519,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_520,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_521,Shooting,N/A,N/A,N/A,N/A,High
+INC_522,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_523,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_524,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_525,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_526,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_527,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_528,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_529,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_530,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_531,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_532,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_533,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_534,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_535,Shooting,N/A,N/A,N/A,N/A,High
+INC_536,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_537,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_538,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_539,Shooting,N/A,N/A,N/A,N/A,High
+INC_540,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_541,Public disturbance,N/A,N/A,N/A,N/A,Low
+INC_542,Murder / homicide,N/A,N/A,N/A,N/A,Low
+INC_543,Domestic disturbance,N/A,N/A,N/A,N/A,Medium
+INC_544,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_545,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_546,Shooting,N/A,N/A,N/A,N/A,High
+INC_547,Shooting,N/A,N/A,N/A,N/A,High
+INC_548,Shooting,N/A,N/A,N/A,N/A,High
+INC_549,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_550,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_551,Road accident,N/A,N/A,N/A,N/A,High
+INC_552,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_553,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_554,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_555,Road accident,N/A,N/A,N/A,N/A,Low
+INC_556,Unknown incident,N/A,N/A,N/A,N/A,High
+INC_557,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_558,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_559,Kidnapping / missing,N/A,N/A,N/A,N/A,Low
+INC_560,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_561,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_562,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_563,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_564,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_565,Shooting,N/A,N/A,N/A,N/A,High
+INC_566,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_567,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_568,Shooting,N/A,N/A,N/A,N/A,High
+INC_569,Shooting,N/A,N/A,N/A,N/A,High
+INC_570,Shooting,N/A,N/A,N/A,N/A,High
+INC_571,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_572,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_573,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_574,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_575,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_576,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_577,Shooting,N/A,N/A,N/A,N/A,High
+INC_578,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_579,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_580,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_581,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_582,Shooting,N/A,N/A,N/A,N/A,High
+INC_583,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_584,Road accident,N/A,N/A,N/A,N/A,High
+INC_585,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_586,Shooting,N/A,N/A,N/A,N/A,High
+INC_587,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_588,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_589,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_590,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_591,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_592,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_593,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_594,Shooting,N/A,N/A,N/A,N/A,High
+INC_595,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_596,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_597,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_598,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_599,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_600,Shooting,N/A,N/A,N/A,N/A,High
+INC_601,Shooting,N/A,N/A,N/A,N/A,High
+INC_602,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_603,Shooting,N/A,N/A,N/A,N/A,High
+INC_604,Shooting,N/A,N/A,N/A,N/A,High
+INC_605,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_606,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_607,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_608,Building fire / trapped persons,N/A,N/A,N/A,N/A,Medium
+INC_609,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_610,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_611,Road accident,N/A,N/A,N/A,N/A,High
+INC_612,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_613,Kidnapping / missing,N/A,N/A,N/A,N/A,High
+INC_614,Shooting,N/A,N/A,N/A,N/A,High
+INC_615,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_616,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_617,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_618,Shooting,N/A,N/A,N/A,N/A,High
+INC_619,Shooting,N/A,N/A,N/A,N/A,High
+INC_620,Shooting,N/A,N/A,N/A,N/A,High
+INC_621,Shooting,N/A,N/A,N/A,N/A,High
+INC_622,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_623,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_624,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_625,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_626,Domestic disturbance,N/A,N/A,N/A,N/A,Low
+INC_627,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_628,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_629,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_630,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_631,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_632,Medical emergency,N/A,N/A,N/A,N/A,Medium
+INC_633,Road accident,N/A,N/A,N/A,N/A,Low
+INC_634,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_635,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_636,Road accident,N/A,N/A,N/A,N/A,High
+INC_637,Shooting,N/A,N/A,N/A,N/A,High
+INC_638,Assault / violence,N/A,N/A,N/A,N/A,Low
+INC_639,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_640,Shooting,N/A,N/A,N/A,N/A,High
+INC_641,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_642,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_643,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_644,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_645,Road accident,N/A,N/A,N/A,N/A,Low
+INC_646,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_647,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_648,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_649,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_650,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_651,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_652,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_653,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_654,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_655,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_656,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_657,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_658,Shooting,N/A,N/A,N/A,N/A,High
+INC_659,Robbery / theft,N/A,N/A,N/A,N/A,Medium
+INC_660,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_661,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_662,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_663,Road accident,N/A,N/A,N/A,N/A,High
+INC_664,Road accident,N/A,N/A,N/A,N/A,High
+INC_665,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_666,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_667,Shooting,N/A,N/A,N/A,N/A,High
+INC_668,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_669,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_670,Domestic disturbance,N/A,N/A,N/A,N/A,Medium
+INC_671,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_672,Road accident,N/A,N/A,N/A,N/A,High
+INC_673,Kidnapping / missing,N/A,N/A,N/A,N/A,Medium
+INC_674,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_675,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_676,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_677,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_678,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_679,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_680,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_681,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_682,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_683,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_684,Road accident,N/A,N/A,N/A,N/A,High
+INC_685,Road accident,N/A,N/A,N/A,N/A,High
+INC_686,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_687,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_688,Shooting,N/A,N/A,N/A,N/A,Medium
+INC_689,Unknown incident,N/A,N/A,N/A,N/A,Low
+INC_690,Shooting,N/A,N/A,N/A,N/A,High
+INC_691,Unknown incident,N/A,N/A,N/A,N/A,Medium
+INC_692,Road accident,N/A,N/A,N/A,N/A,Medium
+INC_693,Assault / violence,N/A,N/A,N/A,N/A,High
+INC_694,Assault / violence,N/A,N/A,N/A,N/A,Medium
+INC_695,Road accident,N/A,N/A,N/A,N/A,High
+INC_696,Building fire / trapped persons,N/A,N/A,N/A,N/A,High
+INC_697,Shooting,N/A,N/A,N/A,N/A,High
+INC_698,Murder / homicide,N/A,N/A,N/A,N/A,Medium
+INC_699,Shooting,N/A,N/A,N/A,N/A,High
+INC_700,Murder / homicide,N/A,N/A,N/A,N/A,High
+INC_701,Unknown incident,N/A,N/A,N/A,N/A,Medium

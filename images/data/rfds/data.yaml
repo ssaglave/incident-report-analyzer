@@ -1,0 +1,13 @@
+names:
+- '0'
+- fire
+nc: 2
+roboflow:
+  license: CC BY 4.0
+  project: fire-dataset-for-yolov8-vbljx
+  url: https://universe.roboflow.com/fire-detection-dataset/fire-dataset-for-yolov8-vbljx/dataset/2
+  version: 2
+  workspace: fire-detection-dataset
+test: ../test/images
+train: ../train/images
+val: ../valid/images
