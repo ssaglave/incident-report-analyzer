@@ -24,7 +24,7 @@ os.environ.setdefault(
     os.path.join(os.path.dirname(__file__), ".torch"),
 )
 
-from pipeline import BasePipeline, generate_incident_id, classify_severity
+from pipeline import BasePipeline
 
 from PIL import Image, ImageDraw
 
@@ -129,15 +129,11 @@ class ImagePipeline(BasePipeline):
     MODULE_NAME = "image"
     SOURCE_LABEL = "image"
     OUTPUT_COLUMNS = [
-        "Incident_ID",
-        "Source",
         "Image_ID",
         "Scene_Type",
         "Objects_Detected",
         "Bounding_Boxes",
-        "Text_Extracted",
         "Confidence",
-        "Severity",
     ]
 
     def __init__(self, data_dir: str, output_dir: str, model_path: str = None):
@@ -490,23 +486,12 @@ class ImagePipeline(BasePipeline):
             )
             confidence = self._average_confidence(detections)
             bbox_summary = self._summarize_boxes(detections)
-            severity = self._classify_image_severity(
-                scene_type=scene_type,
-                object_names=object_names,
-                ocr_text=item["ocr_text"],
-                confidence=confidence,
-            )
-
             record = {
-                "Incident_ID": generate_incident_id(idx),
-                "Source": self.SOURCE_LABEL,
                 "Image_ID": f"IMG_{idx:03d}",
                 "Scene_Type": scene_type,
                 "Objects_Detected": ", ".join(dict.fromkeys(object_names)),
                 "Bounding_Boxes": bbox_summary,
-                "Text_Extracted": item["ocr_text"][:250],
                 "Confidence": round(confidence, 2),
-                "Severity": severity,
             }
             self.extracted_records.append(record)
 
@@ -554,28 +539,6 @@ class ImagePipeline(BasePipeline):
             x1, y1, x2, y2 = det["bbox"]
             parts.append(f"{det['class']}:[{x1},{y1},{x2},{y2}]")
         return "; ".join(parts)
-
-    def _classify_image_severity(
-        self,
-        scene_type: str,
-        object_names: List[str],
-        ocr_text: str,
-        confidence: float,
-    ) -> str:
-        """Apply image-specific severity rules and fall back to the shared helper."""
-        text_blob = " ".join([scene_type, " ".join(object_names), ocr_text]).strip()
-        lowered_objects = {name.lower() for name in object_names}
-        ocr_lower = ocr_text.lower()
-
-        if {"fire", "smoke", "gun", "knife"}.intersection(lowered_objects):
-            return "High"
-        if any(term in ocr_lower for term in OCR_HIGH_SEVERITY_HINTS):
-            return "High"
-        if {"car", "truck", "bus"}.intersection(lowered_objects):
-            return "Medium" if confidence >= 0.4 else "Low"
-
-        return classify_severity(text_blob, confidence)
-
 
 if __name__ == "__main__":
     pipeline = ImagePipeline(
