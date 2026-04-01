@@ -110,11 +110,14 @@ class ImagePipeline(BasePipeline):
     MODULE_NAME = "image"
     SOURCE_LABEL = "image"
     OUTPUT_COLUMNS = [
+        "Incident_ID",
+        "Source",
         "Image_ID",
         "Scene_Type",
         "Objects_Detected",
         "Bounding_Boxes",
         "Confidence",
+        "Severity",
     ]
 
     def __init__(self, data_dir: str, output_dir: str, model_path: str = None):
@@ -306,7 +309,7 @@ class ImagePipeline(BasePipeline):
                     y2 = round(y_center + (box_height / 2), 2)
                     class_name = self.class_names.get(class_id, f"class_{class_id}")
                     if class_name == "0":
-                        class_name = "unknown"
+                        class_name = "non-fire"
                     detections.append(
                         {
                             "class": class_name,
@@ -324,7 +327,14 @@ class ImagePipeline(BasePipeline):
 
     def _guess_label_path(self, img_path: str) -> str:
         """Map an image path inside a YOLO dataset to its label file."""
-        label_dir = img_path.replace(f"{os.sep}images{os.sep}", f"{os.sep}labels{os.sep}")
+        # Use rsplit to replace the LAST /images/ segment (the YOLO dataset
+        # structure), not the first one (which may be the module directory).
+        sep = f"{os.sep}images{os.sep}"
+        parts = img_path.rsplit(sep, 1)
+        if len(parts) == 2:
+            label_dir = f"{os.sep}labels{os.sep}".join(parts)
+        else:
+            label_dir = img_path
         stem, _ = os.path.splitext(label_dir)
         return f"{stem}.txt"
 
@@ -450,6 +460,8 @@ class ImagePipeline(BasePipeline):
     # Stage 3: Information Extraction
     def extract_information(self):
         """Convert detection and OCR output into the shared CSV schema."""
+        from pipeline.base_pipeline import generate_incident_id, classify_severity
+
         self.extracted_records = []
 
         for idx, item in enumerate(self.processed_data, start=1):
@@ -462,12 +474,20 @@ class ImagePipeline(BasePipeline):
             )
             confidence = self._average_confidence(detections)
             bbox_summary = self._summarize_boxes(detections)
+
+            # Build text description for severity classification
+            description = f"{scene_type} {' '.join(object_names)}"
+            severity = classify_severity(description, confidence)
+
             record = {
+                "Incident_ID": generate_incident_id(idx),
+                "Source": self.SOURCE_LABEL,
                 "Image_ID": f"IMG_{idx:03d}",
                 "Scene_Type": scene_type,
-                "Objects_Detected": ", ".join(dict.fromkeys(object_names)),
+                "Objects_Detected": ", ".join(dict.fromkeys(object_names)) + (f" ({confidence:.2f})" if object_names else ""),
                 "Bounding_Boxes": bbox_summary,
                 "Confidence": round(confidence, 2),
+                "Severity": severity,
             }
             self.extracted_records.append(record)
 
